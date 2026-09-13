@@ -49,9 +49,9 @@ function optim.FistaLS(f, g, pl, xinit, params)
    local verbose = params.verbose
 
    -- temporary allocations
-   params.xkm = params.xkm or torch.Tensor()
-   params.y   = params.y   or torch.Tensor()
-   params.ply = params.ply or torch.Tensor()
+   params.xkm = params.xkm or xinit.new()
+   params.y   = params.y   or xinit.new()
+   params.ply = params.ply or xinit.new()
    local xkm = params.xkm  -- previous iteration
    local y   = params.y    -- fista iteration
    local ply = params.ply  -- soft shrinked y
